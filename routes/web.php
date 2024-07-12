@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ComicController;
+use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// ROTTA HOMEPAGE
+Route::get('/', [PageController::class, 'index']);
+
+// ELENCO FUMETTI
+// Route::get('/comics', [ComicController::class, 'index']);
+
+Route::resource('comics', ComicController::class);
