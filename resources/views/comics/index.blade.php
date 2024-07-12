@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Elenco fumetti </title>
+    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                     <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
                     <p>Titolo: {{ $comic->title }}</p>
                     <p>Descrizione: {{ $comic->description }}</p>
-                    <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>
+                    <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="width: 100%"></img>
                     <p>Prezzo: {{ $comic->price }}</p>
                     <p>Serie: {{ $comic->series }}</p>
                     <p>Data uscita: {{ $comic->sale_date }}</p>
