@@ -10,11 +10,13 @@
 
 <body>
     <h1>Fumetti</h1>
+    <a href="{{ route('comics.create') }}">Crea un fumetto</a>
 
     <div class="container">
         <div class="row">
             @foreach ($comics as $comic)
                 <div class="col-4">
+                    <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
                     <p>Titolo: {{ $comic->title }}</p>
                     <p>Descrizione: {{ $comic->description }}</p>
                     <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>
