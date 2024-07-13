@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <a href="{{ route('comics.index') }}">Vai all'elenco dei fumetti</a>
 </body>
 
 </html>
