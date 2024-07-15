@@ -10,17 +10,18 @@
 </head>
 
 <body>
-    <h1>Fumetti</h1>
-    <a href="{{ route('comics.create') }}">Crea un fumetto</a>
 
     <div class="container">
+        <h1>Fumetti</h1>
+        <a href="{{ route('comics.create') }}">Crea un fumetto</a>
         <div class="row">
             @foreach ($comics as $comic)
                 <div class="col-4">
                     <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
+                    <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
                     <p>Titolo: {{ $comic->title }}</p>
                     <p>Descrizione: {{ $comic->description }}</p>
-                    <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}" style="width: 100%"></img>
+                    <img class="w-100" src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>
                     <p>Prezzo: {{ $comic->price }}</p>
                     <p>Serie: {{ $comic->series }}</p>
                     <p>Data uscita: {{ $comic->sale_date }}</p>
