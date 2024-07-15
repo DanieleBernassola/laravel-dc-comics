@@ -19,6 +19,11 @@
                 <div class="col-4">
                     <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
                     <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
+                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-secondary">Delete</button>
+                    </form>
                     <p>Titolo: {{ $comic->title }}</p>
                     <p>Descrizione: {{ $comic->description }}</p>
                     <img class="w-100" src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>

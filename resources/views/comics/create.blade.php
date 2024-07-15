@@ -27,12 +27,28 @@
                 <input type="text" class="form-control" name="thumb">
             </div>
             <div class="mb-3">
+                <label class="form-label">Prezzo</label>
+                <input type="number" class="form-control" name="price">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Serie</label>
+                <input type="text" class="form-control" name="series">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tipo</label>
+                <input type="text" class="form-control" name="type">
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Data</label>
                 <input type="text" class="form-control" name="sale_date">
             </div>
             <div class="mb-3">
                 <label class="form-label">Autore</label>
                 <input type="text" class="form-control" name="artists">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Scrittori</label>
+                <input type="text" class="form-control" name="writers">
             </div>
             <button class="btn btn-primary">Crea fumetto</button>
         </form>
