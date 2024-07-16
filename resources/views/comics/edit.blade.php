@@ -14,7 +14,15 @@
         <h1>Modifica fumetto: {{ $comics->title }}</h1>
         <a href="{{ route('comics.index') }}">Torna all'elenco</a>
 
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('comics.update', $comics->id) }}" method="POST">
             @csrf
             @method('PUT')

@@ -49,7 +49,7 @@ class ComicController extends Controller
 
         // $comic->save();
 
-        return redirect()->route('comics.show');
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
@@ -84,7 +84,7 @@ class ComicController extends Controller
 
         $comic->update($request->validated());
 
-        return redirect()->route('comics.show');
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
