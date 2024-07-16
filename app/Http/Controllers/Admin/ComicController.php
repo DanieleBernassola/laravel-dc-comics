@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -29,24 +30,25 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $data = $request->all();
-        $comic = new Comic();
+        // $data = $request->all();
+        $comic = Comic::create($request->validated());
+        // $comic = new Comic();
 
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->type = $data['type'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->artists = $data['artists'];
-        $comic->writers = $data['writers'];
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->type = $data['type'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->artists = $data['artists'];
+        // $comic->writers = $data['writers'];
 
-        $comic->save();
+        // $comic->save();
 
-        return redirect()->route('comics.show', $comic->id);
+        return redirect()->route('comics.show');
     }
 
     /**
