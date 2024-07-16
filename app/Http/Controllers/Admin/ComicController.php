@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -74,15 +75,16 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
         // $comic = Comic::findOrFail($id);
 
-        $data = $request->all();
-        $comic->update($data);
-        // @dd($data, $comic);
+        // $data = $request->all();
+        // $comic->update($data);
 
-        return redirect()->route('comics.show', $comic->id);
+        $comic->update($request->validated());
+
+        return redirect()->route('comics.show');
     }
 
     /**
