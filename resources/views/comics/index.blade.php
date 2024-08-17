@@ -10,33 +10,35 @@
 </head>
 
 <body>
-
-    <div class="container">
-        <h1>Fumetti</h1>
-        <a href="{{ route('comics.create') }}">Crea un fumetto</a>
-        <div class="row">
-            @foreach ($comics as $comic)
-                <div class="col-4">
-                    <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
-                    <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
-                    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-secondary">Delete</button>
-                    </form>
-                    <p>Titolo: {{ $comic->title }}</p>
-                    <p>Descrizione: {{ $comic->description }}</p>
-                    <img class="w-100" src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>
-                    <p>Prezzo: {{ $comic->price }}</p>
-                    <p>Serie: {{ $comic->series }}</p>
-                    <p>Data uscita: {{ $comic->sale_date }}</p>
-                    <p>Tipo: {{ $comic->type }}</p>
-                    <p>Artista: {{ $comic->artists }}</p>
-                    <p>Scrittore: {{ $comic->writers }}</p>
-                </div>
-            @endforeach
+    <header class="d-flex justify-content-between">
+        <img src="" alt="">
+        <div class="text-uppercase">
+            <h6>characters</h6>
         </div>
-    </div>
+    </header>
+
+    <main class="container-fluid text-white">
+        <div class="container">
+
+            <h1>Fumetti</h1>
+            <a href="{{ route('comics.create') }}">Crea un fumetto</a>
+            <div class="row">
+                @foreach ($comics as $comic)
+                    <div class="col-2">
+                        <a href="{{ route('comics.show', $comic->id) }}">Dettagli</a>
+                        <a href="{{ route('comics.edit', $comic->id) }}">Modifica</a>
+                        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-secondary">Delete</button>
+                        </form>
+                        <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}"></img>
+                        <p class="text-uppercase">{{ $comic->series }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

@@ -1,5 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 
-.col-4 {
-    min-height: 1000px;
+.col-2 img {
+    width: 100%;
+    height: 200px;
+}
+
+.description img {
+    width: 100%;
+}
+
+main {
+    background-color: #1c1c1c;
 }
